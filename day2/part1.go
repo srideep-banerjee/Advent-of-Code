@@ -24,13 +24,12 @@ func PrintAns1(file *os.File) {
 		}
 	}
 
-	handleError(sc.Err())
-	handleError(file.Close())
+	HandleError(sc.Err())
 
-	fmt.Println("Score is ", score)
+	fmt.Println("Day 2 Part 1 ans is", score)
 }
 
-func handleError(err error) {
+func HandleError(err error) {
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
