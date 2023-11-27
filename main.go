@@ -1,7 +1,7 @@
 package main
 
-import "github.com/srideep-banerjee/AdventOfCode/day2/part2"
+import "github.com/srideep-banerjee/Advent-of-Code/day2/part1"
 
 func main() {
-	part2.PrintAns()
+	part1.PrintAns()
 }
