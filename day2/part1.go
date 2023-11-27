@@ -6,9 +6,7 @@ import (
 	"os"
 )
 
-func PrintAns() {
-	file, err := os.Open("input.txt")
-	handleError(err)
+func PrintAns1(file *os.File) {
 	var sc = bufio.NewScanner(file)
 
 	score := 0

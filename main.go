@@ -1,7 +1,20 @@
 package main
 
-import "github.com/srideep-banerjee/Advent-of-Code/day2/part1"
+import (
+	"example/day1"
+	"os"
+)
 
 func main() {
-	part1.PrintAns()
+	file, err := os.Open("input.txt")
+	if(err != nil) {
+		panic(err)
+	}
+	
+	day1.PrintAns1(file)
+
+	err = file.Close()
+	if(err != nil) {
+		panic(err)
+	}
 }
