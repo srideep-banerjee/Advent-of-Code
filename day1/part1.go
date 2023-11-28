@@ -2,6 +2,7 @@ package day1
 
 import (
 	"bufio"
+	"example/common"
 	"fmt"
 	"os"
 	"strconv"
@@ -20,7 +21,7 @@ func PrintAns1(file *os.File) {
 			curSum = 0
 		} else {
 			num, err := strconv.Atoi(line)
-			HandleError(err)
+			common.HandleError(err)
 			curSum += num
 			if curSum > maxSum {
 				maxSum = curSum
@@ -28,14 +29,7 @@ func PrintAns1(file *os.File) {
 		}
 	}
 
-	HandleError(sc.Err())
+	common.HandleError(sc.Err())
 
 	fmt.Println("Day 1 Part 1 ans is", maxSum)
-}
-
-func HandleError(err error) {
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
 }

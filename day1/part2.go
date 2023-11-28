@@ -2,6 +2,7 @@ package day1
 
 import (
 	"bufio"
+	"example/common"
 	"fmt"
 	"os"
 	"sort"
@@ -23,7 +24,7 @@ func PrintAns2(file *os.File) {
 			curSum = 0
 		} else {
 			num, err := strconv.Atoi(line)
-			HandleError(err)
+			common.HandleError(err)
 			curSum += num
 		}
 	}
@@ -35,7 +36,7 @@ func PrintAns2(file *os.File) {
 		return sums[i]>sums[j]
 	})
 		
-	HandleError(sc.Err())
+	common.HandleError(sc.Err())
 
 	fmt.Println("Day 1 Part 2 ans is", sums[0] + sums[1] + sums[2])
 }

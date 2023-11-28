@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"example/common"
 )
 
 func PrintAns1(file *os.File) {
@@ -19,13 +20,13 @@ func PrintAns1(file *os.File) {
 		var startA, startB, endA, endB int
 		var err error
 		startA, err = strconv.Atoi(strings.Split(A, "-")[0])
-		HandleError(err)
+		common.HandleError(err)
 		endA, err = strconv.Atoi(strings.Split(A, "-")[1])
-		HandleError(err)
+		common.HandleError(err)
 		startB, err = strconv.Atoi(strings.Split(B, "-")[0])
-		HandleError(err)
+		common.HandleError(err)
 		endB, err = strconv.Atoi(strings.Split(B, "-")[1])
-		HandleError(err)
+		common.HandleError(err)
 		
 		if endA - startA > endB - startB {
 			endA, endB = endB, endA
@@ -37,14 +38,13 @@ func PrintAns1(file *os.File) {
 		}
 	}
 
-	HandleError(sc.Err())
-
+	common.HandleError(sc.Err())
 	fmt.Println("Day 4 Part 1 ans is ", count)
 }
 
-func HandleError(err error) {
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
-}
+// func HandleError(err error) {
+// 	if err != nil {
+// 		fmt.Println(err.Error())
+// 		os.Exit(1)
+// 	}
+// }

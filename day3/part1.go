@@ -2,6 +2,7 @@ package day3
 
 import (
 	"bufio"
+	"example/common"
 	"fmt"
 	"os"
 	"unicode/utf8"
@@ -32,14 +33,7 @@ func PrintAns1(file *os.File) {
 		}
 	}
 	
-	HandleError(sc.Err())
+	common.HandleError(sc.Err())
 	
 	fmt.Println("Day 3 Part 1 ans is",sum)
-}
-
-func HandleError(err error) {
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
 }

@@ -2,6 +2,7 @@ package day3
 
 import (
 	"bufio"
+	"example/common"
 	"fmt"
 	"os"
 )
@@ -47,7 +48,7 @@ func PrintAns2(file *os.File) {
 		}
 	}
 	
-	HandleError(sc.Err())
+	common.HandleError(sc.Err())
 	
 	fmt.Println("Day 3 Part 2 ans is",sum)
 }

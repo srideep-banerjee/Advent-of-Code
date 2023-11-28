@@ -2,6 +2,7 @@ package day4
 
 import (
 	"bufio"
+	"example/common"
 	"fmt"
 	"os"
 	"strconv"
@@ -19,13 +20,13 @@ func PrintAns2(file *os.File) {
 		var startA, startB, endA, endB int
 		var err error
 		startA, err = strconv.Atoi(strings.Split(A, "-")[0])
-		HandleError(err)
+		common.HandleError(err)
 		endA, err = strconv.Atoi(strings.Split(A, "-")[1])
-		HandleError(err)
+		common.HandleError(err)
 		startB, err = strconv.Atoi(strings.Split(B, "-")[0])
-		HandleError(err)
+		common.HandleError(err)
 		endB, err = strconv.Atoi(strings.Split(B, "-")[1])
-		HandleError(err)
+		common.HandleError(err)
 		
 		if endA - startA > endB - startB {
 			endA, endB = endB, endA
@@ -37,7 +38,7 @@ func PrintAns2(file *os.File) {
 		}
 	}
 
-	HandleError(sc.Err())
+	common.HandleError(sc.Err())
 
 	fmt.Println("Day 4 Part 2 ans is ", count)
 }
