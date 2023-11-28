@@ -11,7 +11,7 @@ func main() {
 		panic(err)
 	}
 	
-	day4.PrintAns1(file)
+	day4.PrintAns2(file)
 
 	err = file.Close()
 	if(err != nil) {
