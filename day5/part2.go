@@ -2,7 +2,6 @@ package day5
 
 import (
 	"bufio"
-	"errors"
 	"example/common"
 	"fmt"
 	"os"
@@ -11,54 +10,7 @@ import (
 	"unicode/utf8"
 )
 
-type Stack struct {
-	arr    []int
-	length int
-}
-
-func NewStack() *Stack {
-	var stack = Stack{[]int{}, 0}
-	return &stack
-}
-
-func (s *Stack) Push(num ...int) {
-	for i := len(num) - 1; i >= 0; i-- {
-		if len(s.arr) == s.length {
-			s.arr = append(s.arr, num[i])
-			s.length++
-		} else {
-			s.arr[s.length] = num[i]
-			s.length++
-		}
-	}
-}
-
-func (s *Stack) Pop() (int, error) {
-	if s.length == 0 {
-		return 0, errors.New("cannot pop from empty stack")
-	}
-	s.length--
-	return s.arr[s.length], nil
-}
-
-func (s *Stack) Peek() (int, error) {
-	if s.length == 0 {
-		return 0, errors.New("cannot peek empty stack")
-	}
-	return s.arr[s.length - 1], nil
-}
-
-func (s *Stack) Reverse() {
-	s2 := NewStack()
-	for s.length != 0 {
-		n, _ := s.Pop()
-		s2.Push(n)
-	}
-	s.arr = s2.arr
-	s.length = s2.length
-}
-
-func PrintAns1(file *os.File) {
+func PrintAns2(file *os.File) {
 	var sc = bufio.NewScanner(file)
 	
 	var stacks []Stack = []Stack{}
@@ -95,17 +47,19 @@ func PrintAns1(file *os.File) {
 		var moveCount, _ = strconv.Atoi(line[5:fromStrIndex])
 		var from, _ = strconv.Atoi(line[fromStrIndex + 6: toStrIndex])
 		var to, _ = strconv.Atoi(line[toStrIndex + 4:])
+		var tempSlice = make([]int, moveCount)
 		from--
 		to--
 		
 		for i := 0; i < moveCount; i++ {
 			num, _ := stacks[from].Pop()
-			stacks[to].Push(num)
+			tempSlice[i] = num
 		}
+		stacks[to].Push(tempSlice...)
 	}
 
 	common.HandleError(sc.Err())
-	fmt.Println("Day 5 Part 1 ans is:")
+	fmt.Println("Day 5 Part 2 ans is:")
 	for i := 0; i < len(stacks); i++ {
 		num, _ := stacks[i].Peek()
 		fmt.Print(string((byte)(num)))
