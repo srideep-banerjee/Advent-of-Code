@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example/2022/day7"
+	"example/2023/day1"
 	"os"
 )
 
@@ -11,7 +11,7 @@ func main() {
 		panic(err)
 	}
 	
-	day7.PrintAns2(file)
+	day1.PrintAns1(file)
 
 	err = file.Close()
 	if(err != nil) {
