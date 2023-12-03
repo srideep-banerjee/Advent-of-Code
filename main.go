@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example/day7"
+	"example/2022/day7"
 	"os"
 )
 
