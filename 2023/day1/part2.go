@@ -49,25 +49,3 @@ func PrintAns2(file *os.File) {
 	common.HandleError(sc.Err())
 	fmt.Println("Day 8 Part 1 ans is ", sum)
 }
-
-func updateIfMin(s string, minStr *string, min *int , substr string) {
-	if !strings.Contains(s, substr) {
-		return
-	}
-	ind := strings.Index(s, substr)
-	if *min == -1 || ind < *min {
-		*min = ind
-		*minStr = substr
-	}
-}
-
-func updateIfMax(s string, maxStr *string, max *int , substr string) {
-	if !strings.Contains(s, substr) {
-		return
-	}
-	ind := strings.LastIndex(s, substr)
-	if *max == -1 || ind > *max {
-		*max = ind
-		*maxStr = substr
-	}
-}
