@@ -36,7 +36,7 @@ func PrintAns1(file *os.File) {
 	}
 	
 	cardCount := []int{}
-	for _,_ = range commanCount {
+	for range commanCount {
 		cardCount = append(cardCount, 1)
 	}
 
